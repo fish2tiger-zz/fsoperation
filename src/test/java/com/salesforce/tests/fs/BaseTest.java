@@ -13,18 +13,9 @@ class BaseTest {
     protected void runTest(String[] input, String[] expectedOutput, boolean showDiffs) throws IOException {
         Main main = new Main();
         String[] output = main.doIt(input);
-        for(String str: expectedOutput){
-            System.out.println(str);
-        }
-        System.out.println("---------------------");
-        for(String str: output){
-            System.out.println(str);
-        }
 
         if (showDiffs) {
             Assert.assertEquals(expectedOutput.length, output.length);
-
-
             for (int i = 0; i < output.length; i++) {
                 Assert.assertEquals(expectedOutput[i], output[i]);
             }

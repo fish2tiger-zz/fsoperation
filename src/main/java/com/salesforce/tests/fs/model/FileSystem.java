@@ -31,12 +31,13 @@ public class FileSystem {
         return true;
     }
 
-    public void cd(String directory) {
+    public boolean cd(String directory) {
         Directory gotoDir = currentDirectory.getSubDir(directory);
         if (gotoDir != null) {
-//            logger.info("directory changed to : " + gotoDir.getName());
             this.currentDirectory = gotoDir;
+            return true;
         }
+        return false;
     }
 
     public Directory getCurrentDirectory() {

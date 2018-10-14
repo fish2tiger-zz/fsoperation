@@ -11,15 +11,13 @@ public abstract class FSCommand {
         this.argument = argument;
     }
 
-    public String getFormatedOutput() {
-        return String.format("Command: %-8s%s\n", opname, argument == null ? "" : argument);
+    String getFormatedOutput() {
+        if(argument==null|| argument.isEmpty())
+            return String.format("Command: %-8s\n", opname, argument);
+        return String.format("Command: %-8s%-8s\n", opname, argument);
     }
 
     public abstract String[] execute(FileSystem fs);
-
-    String getOpname() {
-        return opname;
-    }
 
     String getArgument() {
         return argument;
