@@ -8,7 +8,7 @@ import org.apache.logging.log4j.Logger;
 
 public class FSUtil {
     private static final Logger logger = LogManager.getLogger(FSUtil.class);
-    private static FileSystem fs = FileSystem.getFs();
+    private FileSystem fs = FileSystem.getFs();
     static public FSCommand parseCommand(String input) {
         String[] command_parsed = input.split("\\s+");
         if (command_parsed.length == 0) {
@@ -43,7 +43,7 @@ public class FSUtil {
         }
         return null;
     }
-    static public String[] execute(String input){
+    public String[] execute(String input){
         FSCommand command = parseCommand(input);
         if(command==null){
             System.out.println("command is null: "+ input);

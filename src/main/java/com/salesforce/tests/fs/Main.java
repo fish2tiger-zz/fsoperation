@@ -21,8 +21,9 @@ public class Main {
 
         //TODO: provide the real implementation here
         List<String> results = new ArrayList<>();
-        for(int i=0;i<input.length;i++){
-            String[] result = FSUtil.execute(input[i]);
+        FSUtil fsUtil = new FSUtil();
+        for (String anInput : input) {
+            String[] result = fsUtil.execute(anInput);
             results.addAll(Arrays.asList(result));
         }
         return results.toArray(new String[]{});

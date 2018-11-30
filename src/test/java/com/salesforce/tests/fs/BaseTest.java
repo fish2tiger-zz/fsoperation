@@ -15,7 +15,19 @@ class BaseTest {
         String[] output = main.doIt(input);
 
         if (showDiffs) {
-            Assert.assertEquals(expectedOutput.length, output.length);
+            try {
+                Assert.assertEquals(expectedOutput.length, output.length);
+            }catch (Throwable throwed){
+                System.out.println("error in test:" + this.getClass().getSimpleName());
+                for(String str: expectedOutput){
+                    System.out.println(str);
+                }
+                System.out.println("-----------------------------");
+                for(String str: output){
+                    System.out.println(str);
+                }
+                throw throwed;
+            }
             for (int i = 0; i < output.length; i++) {
                 Assert.assertEquals(expectedOutput[i], output[i]);
             }

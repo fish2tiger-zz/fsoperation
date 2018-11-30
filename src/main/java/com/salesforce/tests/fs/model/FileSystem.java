@@ -1,14 +1,9 @@
 package com.salesforce.tests.fs.model;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 import java.util.Set;
 
 public class FileSystem {
     private Directory currentDirectory;
-    private static final FileSystem fs = new FileSystem();
-
 
     private FileSystem() {
         this.currentDirectory = new Directory(null, "root");
@@ -45,6 +40,6 @@ public class FileSystem {
     }
 
     static public FileSystem getFs() {
-        return fs;
+        return new FileSystem();
     }
 }
